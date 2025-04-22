@@ -6,7 +6,7 @@
 }
 
 body, main, .book,
-.book-info {
+.book-info, .input-wrapper.check {
     display: flex;
 }
 
@@ -30,18 +30,19 @@ header, main {
 /* main styles */
 
 main {
-    flex-grow: 1;
+    gap: 2rem;
 }
 
 .books {
-    width: 60%;
+    width: 70%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
     gap: .825rem;
 }
 
 .add-book {
-    width: 40%;
+    border-left: 2px solid black;
+    width: 30%;
 }
 
 .book {
@@ -68,6 +69,46 @@ main {
     text-transform: capitalize;
 }
 
-.add-book, .book {
+.book {
     border: 1px solid black;
 }
+
+.add-book form {
+    padding: 1.2rem;
+    text-align: center; 
+}
+
+.form-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+
+.input-wrapper input[type="text"], input[type="number"] {
+    width: 13.75rem;
+    font-size: 1.1rem;
+    padding: .3rem;
+    margin-top: .5rem; 
+}
+
+.input-wrapper.check {
+    margin-top: .5rem;
+    justify-content: center;
+    gap: .5rem;
+    align-items: center;
+}
+
+.btn-wrapper {
+    margin-top: .7rem;
+}
+
+.btn-wrapper button {
+    padding: .2rem .5rem;
+    width: 9rem;
+    font-size: 1.02rem;
+    background-color: #014182;
+    color: #fff;
+    border-radius: 6rem;
+    border: none;
+}
+

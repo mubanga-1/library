@@ -19,7 +19,28 @@
         <div class="books">
             
         </div>
-        <div class="add-book"></div>
+        <div class="add-book">
+            <form action="#" autocomplete="off">
+                <div class="form-heading">Add a book</div>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Title">
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Author">
+                </div>
+                <div class="input-wrapper">
+                    <input type="number" placeholder="Pages" min="0">
+                </div>
+                <div class="input-wrapper check">
+                    <label for="read">Read:</label>
+                    <input id="read" type="checkbox" name="isread">
+                </div>
+
+                <div class="btn-wrapper">
+                    <button id="add">Add to Library</button>
+                </div>
+            </form>
+        </div>
     </main>
 </body>
 </html>
