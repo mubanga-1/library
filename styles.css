@@ -71,7 +71,14 @@ main {
 
 .book {
     border: 1px solid black;
+    transition: .7s ease;
 }
+
+.book:hover {
+    background-color: #d8d8d8;
+    border: 1px solid #fff;
+}
+
 
 .add-book form {
     padding: 1.2rem;
