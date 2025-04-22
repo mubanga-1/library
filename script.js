@@ -19,7 +19,7 @@ const myLibrary = [
 ];
 
 // Book contructor
-function Book(imageUrl, title, author, pages) {
+function Book(imageUrl, title, author, pages, read) {
     if (!new.target) {
         throw Error("Function book must be called with new keyword!");
     }
@@ -29,12 +29,13 @@ function Book(imageUrl, title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = false;
+    this.read = read;
+    this.displayed = false;
 }
 
 // Function for adding books to library array
-function addBookToLibrary(imageUrl, title, author, pages) {
-    const newBook = new Book(imageUrl, title, author, pages);
+function addBookToLibrary(imageUrl, title, author, pages, read) {
+    const newBook = new Book(imageUrl, title, author, pages, read);
     myLibrary.push(newBook);
 }
 
@@ -58,39 +59,61 @@ function displayBooks() {
 
         // Loops through the book object adding each property to the correct container
         for (let property in book) {
-            const prop = document.createElement("div");
+            if (property != "displayed") {
+                const prop = document.createElement("div");
 
-            if (property == "read") {
-                if (book[property] == true) {
-                    prop.innerText = `${property}: Yes`;
+                if (property == "read") {
+                    if (book[property] == true) {
+                        prop.innerText = `${property}: Yes`;
+
+                    } else {
+                        prop.innerText = `${property}: No`;
+                    }
 
                 } else {
-                    prop.innerText = `${property}: No`;
+                    prop.innerText = `${property}: ${book[property]}`;
                 }
-
-            } else {
-                prop.innerText = `${property}: ${book[property]}`;
-            }
-            
-            if (property != "imageUrl"){
-                bookInfo.appendChild(prop);
-
-            } else {
-                const cover = document.createElement("img");
-                cover.src = book[property];
-                cover.alt = `Cover image of ${book.title}`;
                 
-                imageContainer.appendChild(cover);
+                if (property != "imageUrl"){
+                    bookInfo.appendChild(prop);
+
+                } else {
+                    const cover = document.createElement("img");
+                    cover.src = book[property];
+                    cover.alt = `Cover image of ${book.title}`;
+                    
+                    imageContainer.appendChild(cover);
+                }
             }
         }
 
         newBookDiv.appendChild(imageContainer);
         newBookDiv.appendChild(bookInfo);
 
-        document.querySelector(".books").appendChild(newBookDiv);
+        if (!book.displayed) {
+            document.querySelector(".books").appendChild(newBookDiv);
+            book.displayed = true;
+        }
     }
 
 
 }
 
 displayBooks();
+
+const addBtn = document.querySelector("#add");
+
+addBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const title = document.querySelector("input[placeholder='Title']").value;
+    const author = document.querySelector("input[placeholder='Author']").value; 
+    const imageUrl = document.querySelector("input[placeholder='Image Url']").value;
+    const pages = document.querySelector("input[type='number']").value;
+    const read = document.querySelector("input[type='checkbox']").checked;
+
+    addBookToLibrary(imageUrl, title, author, pages, read);
+
+    displayBooks();
+})
+
