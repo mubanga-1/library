@@ -34,15 +34,15 @@ main {
 }
 
 .books {
-    width: 70%;
+    width: 75%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 450px));
     gap: .825rem;
 }
 
 .add-book {
     border-left: 2px solid black;
-    width: 30%;
+    width: 25%;
 }
 
 .book {
