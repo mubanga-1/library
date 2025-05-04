@@ -18,19 +18,17 @@ const myLibrary = [
     }
 ];
 
-// Book constructor
-function Book(imageUrl, title, author, pages, read) {
-    if (!new.target) {
-        throw Error("Function book must be called with new keyword!");
+// Book class
+class Book {
+    constructor(imageUrl, title, author, pages, read) {
+        this.id = crypto.randomUUID();
+        this.imageUrl = imageUrl;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.displayed = false;
     }
-
-    this.id = crypto.randomUUID();
-    this.imageUrl = imageUrl;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.displayed = false;
 }
 
 // Function for adding books to library array
