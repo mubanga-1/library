@@ -18,7 +18,7 @@ const myLibrary = [
     }
 ];
 
-// Book contructor
+// Book constructor
 function Book(imageUrl, title, author, pages, read) {
     if (!new.target) {
         throw Error("Function book must be called with new keyword!");
