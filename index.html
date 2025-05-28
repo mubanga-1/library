@@ -23,16 +23,16 @@
             <form>
                 <div class="form-heading">Add a book</div>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Title">
+                    <input type="text" placeholder="Title" maxlength="64" required>
                 </div>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Author">
+                    <input type="text" placeholder="Author" maxlength="64" required>
                 </div>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Image Url">
+                    <input type="url" placeholder="Image Url" required>
                 </div>
                 <div class="input-wrapper">
-                    <input type="number" placeholder="Pages" min="0">
+                    <input type="number" placeholder="Pages" min="150" required>
                 </div>
                 <div class="input-wrapper check">
                     <label for="read">Read:</label>

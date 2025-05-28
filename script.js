@@ -1,7 +1,7 @@
 // Library Array
 const myLibrary = [
     {
-        id: 1,
+        id: crypto.randomUUID(),
         imageUrl: "https://i.imgur.com/2z4K95I.jpeg",
         title: "Hamlet",
         author: "William Shakespeare",
@@ -9,7 +9,7 @@ const myLibrary = [
         read: false,        
     },
     {
-        id: 2,
+        id: crypto.randomUUID(),
         imageUrl: "https://i.imgur.com/wW70vfm.jpeg",
         title: "The Great Gatsby",
         author: "F. Scott Fitzgerald",

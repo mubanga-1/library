@@ -91,7 +91,8 @@ main {
 }
 
 
-.input-wrapper input[type="text"], input[type="number"] {
+.input-wrapper input[type="text"], input[type="number"],
+input[type="url"] {
     width: 13.75rem;
     font-size: 1.1rem;
     padding: .3rem;
@@ -119,3 +120,6 @@ main {
     border: none;
 }
 
+input:invalid {
+    border: 1px solid #900;
+}
